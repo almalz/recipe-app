@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Layout from '../components/Layout'
+import { Button } from '../components/button/Button'
 
 const IndexPage = () => (
   <Layout>
@@ -8,6 +9,7 @@ const IndexPage = () => (
         <a>About</a>
       </Link>
       <span className="text-blue-800">TOTO</span>
+      <Button label="hello"></Button>
     </p>
   </Layout>
 )
