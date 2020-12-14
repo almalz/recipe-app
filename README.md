@@ -1,4 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Personnal showcase website
+I try some stuff building a recipe manager app
+
+Current stack :
+
+- Next.js
+- Typescript
+- Tailwind + Styled Componenets + Twin.macro
+- Storybook
 
 ## Getting Started
 
