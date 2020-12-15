@@ -9,7 +9,8 @@ const IndexPage = () => (
         <a>About</a>
       </Link>
       <span className="text-blue-800">TOTO</span>
-      <Button label="hello"></Button>
+      <Button label="hello" variant="primary"></Button>
+      <Button label="world" variant="secondary"></Button>
     </p>
   </Layout>
 )

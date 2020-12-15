@@ -2,23 +2,24 @@ import React from 'react'
 
 import StyledButton from './Button.styles'
 
-export interface ButtonProps {
+export type ButtonProps = {
   disabled?: boolean
   label: string
   onClick?: () => void
+  variant: 'primary' | 'secondary'
+  icon?: File
 }
-
-/**
- * Primary UI component for user interaction
- */
 
 export const Button: React.FC<ButtonProps> = ({
   disabled,
   label,
+  onClick,
+  variant,
+  icon,
   ...props
 }) => {
   return (
-    <StyledButton type="button" {...props}>
+    <StyledButton variant={variant} {...props}>
       {label}
     </StyledButton>
   )
