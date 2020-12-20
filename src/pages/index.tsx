@@ -10,7 +10,11 @@ const IndexPage = () => (
       </Link>
       <span className="text-blue-800">TOTO</span>
       <Button label="hello" variant="primary"></Button>
-      <Button label="world" variant="secondary"></Button>
+      <Button
+        label="world"
+        variant="outline"
+        iconPath="/assets/cog.svg"
+      ></Button>
     </p>
   </Layout>
 )

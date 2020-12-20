@@ -22,3 +22,16 @@ Secondary.args = {
   label: 'Button',
   variant: 'secondary'
 }
+
+export const Outline = Template.bind({})
+Outline.args = {
+  label: 'Button',
+  variant: 'outline'
+}
+
+export const OutlineIcon = Template.bind({})
+OutlineIcon.args = {
+  label: 'Button',
+  variant: 'outline',
+  iconPath: '/assets/cog.svg'
+}
