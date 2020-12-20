@@ -1,7 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
+import { LoadingOutlined } from '@ant-design/icons'
 
-import StyledButton, { ButtonWrapper, StyledLoader } from './Button.styles'
+import StyledButton, { ButtonWrapper } from './Button.styles'
 
 export type ButtonProps = {
   disabled?: boolean
@@ -22,17 +23,12 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   return (
-    <StyledButton variant={variant} {...props}>
+    <StyledButton variant={variant} {...props} disabled={disabled}>
       <ButtonWrapper>
         {iconPath && !isLoading && (
-          <Image
-            src={iconPath}
-            width={14}
-            height={14}
-            // css={{ marginRight: '- 3px' }}
-          />
+          <Image src={iconPath} width={14} height={14} />
         )}
-        {isLoading && <StyledLoader />}
+        {isLoading && <LoadingOutlined spin />}
         <span>{label}</span>
       </ButtonWrapper>
     </StyledButton>
