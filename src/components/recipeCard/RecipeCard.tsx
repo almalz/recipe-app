@@ -1,4 +1,3 @@
-import React from 'react'
 import Image from 'next/image'
 
 import StyledRecipeCard, {
@@ -10,18 +9,12 @@ import StyledRecipeCard, {
 
 export type RecipeCardProps = {
   title: string
-  onClick?: () => void
   imageUrl: string
 }
 
-export const RecipeCard: React.FC<RecipeCardProps> = ({
-  title,
-  onClick,
-  imageUrl,
-  ...props
-}) => {
+export const RecipeCard: React.FC<RecipeCardProps> = ({ title, imageUrl }) => {
   return (
-    <StyledRecipeCard {...props}>
+    <StyledRecipeCard>
       <CardImageContainer>
         <CardImage
           src={imageUrl}

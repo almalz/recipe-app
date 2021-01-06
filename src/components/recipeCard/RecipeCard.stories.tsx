@@ -10,8 +10,8 @@ export default {
 
 const Template: Story<RecipeCardProps> = (args) => <RecipeCard {...args} />
 
-export const Primary = Template.bind({})
-Primary.args = {
+export const Main = Template.bind({})
+Main.args = {
   title: recipes[0].name,
   imageUrl: recipes[0].imageUrl
 }
