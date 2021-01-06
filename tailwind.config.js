@@ -18,7 +18,11 @@ module.exports = {
       error: '#F87171',
       success: '#10B981'
     },
-    extend: {}
+    extend: {
+      zIndex: {
+        '-10': '-10'
+      }
+    }
   },
   variants: {
     extend: {}
