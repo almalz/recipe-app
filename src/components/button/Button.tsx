@@ -12,7 +12,7 @@ export type ButtonProps = {
   isLoading?: boolean
 }
 
-export const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   disabled,
   label,
   onClick,
@@ -33,3 +33,5 @@ export const Button: React.FC<ButtonProps> = ({
     </StyledButton>
   )
 }
+
+export default Button

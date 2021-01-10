@@ -1,7 +1,7 @@
-import { StyledNavbar, StyledNavbarItem } from './Navbav.styles'
+import { StyledNavbar, StyledNavbarItem } from './Navbar.styles'
 
 export type NavbarProps = {
-  navItems: NavItem[]
+  navItems?: NavItem[]
 }
 
 export type NavItem = {
@@ -14,7 +14,7 @@ export const navbarItems: NavItem[] = [
   { label: 'Blog', link: '' }
 ]
 
-export const Navbar: React.FC<NavbarProps> = ({ navItems = navbarItems }) => {
+const Navbar: React.FC<NavbarProps> = ({ navItems = navbarItems }) => {
   return (
     <StyledNavbar>
       {navItems.map((navItem) => (
@@ -23,3 +23,5 @@ export const Navbar: React.FC<NavbarProps> = ({ navItems = navbarItems }) => {
     </StyledNavbar>
   )
 }
+
+export default Navbar

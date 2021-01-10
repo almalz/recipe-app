@@ -29,15 +29,15 @@ export type Recipe = {
   name: string
   prepTime?: number
   cookingTime?: number
-  instructionId?: number | null
-  imageUrl?: string | null
-  sourceUrl?: string | null
+  instructionId?: number | null | undefined
+  imageUrl?: string | null | undefined
+  sourceUrl?: string | null | undefined
   IngredientsOnRecipe: {
     id: number
     recipeId: number
     ingredientId: number
-    base_amout?: number | null
-    unitId?: number | null
+    base_amout?: number | null | undefined
+    unitId?: number | null | undefined
     ingredient: {
       id: number
       name: string

@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import tw from 'twin.macro'
 
-const StyledLayout = tw.div`antialiased text-gray-900 flex items-center justify-center min-h-screen`
+const StyledLayout = tw.div`flex flex-col items-center justify-center lg:mx-32 md:mx-16 sm:mx-8 `
 
 type Props = {
   children?: ReactNode

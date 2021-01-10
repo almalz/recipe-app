@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import tw, { css } from 'twin.macro'
 
 import StyledRecipeCard, {
   CardImageContainer,
@@ -9,19 +10,19 @@ import StyledRecipeCard, {
 
 export type RecipeCardProps = {
   title: string
-  imageUrl: string
+  imageUrl: string | null | undefined
 }
 
-export const RecipeCard: React.FC<RecipeCardProps> = ({ title, imageUrl }) => {
+const RecipeCard: React.FC<RecipeCardProps> = ({ title, imageUrl }) => {
   return (
     <StyledRecipeCard>
       <CardImageContainer>
-        <CardImage
-          src={imageUrl}
-          width={200}
-          height={800}
-          quality={100}
-          alt="Card image"
+        <Image
+          src={`data:image/jpeg;base64,${imageUrl}`}
+          alt={title}
+          layout="fill"
+          objectFit="cover"
+          css={tw`transform transition duration-200 hover:scale-110`}
         />
 
         <TimeLabel>
@@ -33,3 +34,5 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ title, imageUrl }) => {
     </StyledRecipeCard>
   )
 }
+
+export default RecipeCard
