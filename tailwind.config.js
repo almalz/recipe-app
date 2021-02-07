@@ -16,7 +16,10 @@ module.exports = {
       backgroundDark: '#333',
       warning: '#F59E0B',
       error: '#F87171',
-      success: '#10B981'
+      success: '#10B981',
+      lightGray: '#E5E7EB',
+      mediumGray: '#9CA3AF',
+      darkGray: '#4B5563'
     },
     extend: {
       zIndex: {
