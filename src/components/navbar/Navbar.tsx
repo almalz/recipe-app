@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react'
 import {
   StyledNavbar,
   StyledNavbarItem,
   StyledItemContainer
 } from './Navbar.styles'
-import SignInMenu from './SignInMenu'
+import AuthMenu from './AuthMenu'
 
 export type NavbarProps = {
   navItems?: NavItem[]
@@ -21,24 +20,7 @@ export const navbarItems: NavItem[] = [
 ]
 
 const Navbar: React.FC<NavbarProps> = ({ navItems = navbarItems }) => {
-  const isLoggedIn = 0
-  const user: string = 'Alex'
-  const toggleDropdown = () => {
-    setShowSignOut(!showSignOut)
-  }
-
-  const closeDropdown = () => {
-    setShowSignOut(false)
-  }
-
-  const [showSignOut, setShowSignOut] = useState<boolean>(true)
-
-  useEffect(() => {
-    console.log('showSignOut : ', showSignOut)
-    console.log('isLoggedIn : ', isLoggedIn)
-
-    // setShowSignOut(isLoggedIn)
-  }, [showSignOut])
+  const user: string | undefined = undefined
 
   return (
     <StyledNavbar>
@@ -49,12 +31,7 @@ const Navbar: React.FC<NavbarProps> = ({ navItems = navbarItems }) => {
           </StyledNavbarItem>
         ))}
       </StyledItemContainer>
-      <SignInMenu
-        user={user}
-        showSignOut={showSignOut}
-        toggleDropdown={toggleDropdown}
-        closeDropdown={closeDropdown}
-      />
+      <AuthMenu user={user} />
     </StyledNavbar>
   )
 }

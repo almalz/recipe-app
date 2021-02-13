@@ -18,7 +18,7 @@ export const RecipeCardLabel = styled.div`
 `
 
 export const TimeLabel = styled.div`
-  ${tw`text-textOnS flex items-center z-10 bg-transparent absolute bottom-0 left-0 m-2`}
+  ${tw`text-textOnS flex items-center bg-transparent absolute bottom-0 left-0 m-2`}
 `
 
 export default StyledRecipeCard

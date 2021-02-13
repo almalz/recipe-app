@@ -10,6 +10,7 @@ export type ButtonProps = {
   variant: 'primary' | 'secondary' | 'outline'
   iconPath?: string
   isLoading?: boolean
+  type: 'button' | 'submit' | 'reset' | undefined
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -19,10 +20,11 @@ const Button: React.FC<ButtonProps> = ({
   variant,
   iconPath,
   isLoading = false,
+  type = 'button',
   ...props
 }) => {
   return (
-    <StyledButton variant={variant} {...props} disabled={disabled}>
+    <StyledButton variant={variant} {...props} disabled={disabled} type={type}>
       <ButtonWrapper>
         {iconPath && !isLoading && (
           <Image src={iconPath} width={14} height={14} />

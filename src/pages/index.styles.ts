@@ -5,7 +5,7 @@ export const RecipeCardContainer = styled.div`
 `
 
 export const RecipeCardGrid = styled.div`
-  ${tw`grid grid-cols-4 gap-8`}
+  ${tw`grid gap-8 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2`}
 `
 
 export const RecipeCardWrapper = styled.div`
