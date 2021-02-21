@@ -8,14 +8,20 @@ import {
   MenuDropdownItem
 } from './Navbar.styles'
 
+import { signOut } from '../../api/firebase'
+
 export type Props = {
-  user?: string
+  user?: string | undefined | null
 }
 
 const AuthMenu: React.FC<Props> = ({ user }) => {
   const handleSignInClick = () => {
     console.log(user)
     user ? toggleDropdown() : openModal()
+  }
+
+  const handleSignOutClick = () => {
+    signOut()
   }
 
   const toggleDropdown = () => {
@@ -36,6 +42,7 @@ const AuthMenu: React.FC<Props> = ({ user }) => {
 
   const [showSignInModal, setShowSignInModal] = useState<boolean>(false)
   const [showSignOut, setShowSignOut] = useState<boolean>(!showSignInModal)
+
   console.log('showSignInModal', showSignInModal)
 
   const ref: any = useRef<HTMLDivElement>()
@@ -50,7 +57,9 @@ const AuthMenu: React.FC<Props> = ({ user }) => {
       {user ? (
         <MenuDropdown>
           <MenuDropdownItem isVisible={showSignOut}>
-            <button css={tw`focus:outline-none`}>Sign Out</button>
+            <button css={tw`focus:outline-none`} onClick={handleSignOutClick}>
+              Sign Out
+            </button>
           </MenuDropdownItem>
         </MenuDropdown>
       ) : (

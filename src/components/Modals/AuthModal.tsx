@@ -6,7 +6,6 @@ import Input from '../Input/Input'
 import SegmentedControl, {
   SegmentItem
 } from '../SegmentedControl/SegmentedControl'
-
 import {
   StyledModal,
   ModalWrapper,
@@ -16,24 +15,25 @@ import {
   AuthTypeContainer
 } from './AuthModal.styles'
 
+import firebase, { createUser, signIn } from '../../api/firebase'
+
 export type Props = {
   modalIsOpen: boolean
   afterOpenModal?: () => void
-  closeModal?: () => void
+  closeModal: () => void
 }
 
 const AuthModal: React.FC<Props> = ({
   modalIsOpen,
   afterOpenModal,
-  closeModal,
-  ...props
+  closeModal
 }) => {
   type FormInputs = {
     email: string
     password: string
   }
 
-  const { register, handleSubmit, watch, errors } = useForm<FormInputs>()
+  const { register, handleSubmit, errors } = useForm<FormInputs>()
   StyledModal.setAppElement('body')
   const segments: SegmentItem[] = [{ label: 'Sign In' }, { label: 'Sign Up' }]
 
@@ -44,11 +44,21 @@ const AuthModal: React.FC<Props> = ({
   }
 
   const onSubmit = (data: FormInputs) => {
-    console.log('data', data)
-    const method = authMethod.label
-  }
+    switch (authMethod.label) {
+      case segments[0].label: //Sign In
+        signIn(data.email, data.password)
+        closeModal()
+        break
 
-  console.log('errors : ', errors)
+      case segments[1].label: //Sign Up
+        createUser(data.email, data.password)
+        closeModal()
+        break
+
+      default:
+        console.info('Could not call any authentification function.')
+    }
+  }
 
   return (
     <StyledModal
@@ -81,8 +91,8 @@ const AuthModal: React.FC<Props> = ({
                 })}
                 iconPath="/assets/mail.svg"
                 errorMessage={errors?.email?.message}
+                autocomplete="email"
               ></Input>
-
               <Input
                 name="password"
                 type="password"

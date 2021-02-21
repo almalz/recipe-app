@@ -3,6 +3,7 @@ import {
   StyledNavbarItem,
   StyledItemContainer
 } from './Navbar.styles'
+import { useAuth } from '../../contexts/AuthContext'
 import AuthMenu from './AuthMenu'
 
 export type NavbarProps = {
@@ -20,7 +21,7 @@ export const navbarItems: NavItem[] = [
 ]
 
 const Navbar: React.FC<NavbarProps> = ({ navItems = navbarItems }) => {
-  const user: string | undefined = undefined
+  const user = useAuth().user?.email
 
   return (
     <StyledNavbar>
