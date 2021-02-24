@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next'
+import Link from 'next/link'
 
 import Layout from '../components/Layout/Layout'
 import Footer from '../components/Footer/Footer'
@@ -26,11 +27,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
 }
 
 const IndexPage: React.FC<PageProps> = ({ recipes }) => {
-  // const [recipes, setRecipes] = useState({})
-
-  // useEffect(() => {
-  // }, [])
-
   return (
     <>
       <Layout>
@@ -38,9 +34,11 @@ const IndexPage: React.FC<PageProps> = ({ recipes }) => {
         <RecipeCardContainer>
           <RecipeCardGrid>
             {recipes.map((recipe) => (
-              <RecipeCardWrapper key={recipe.id}>
-                <RecipeCard title={recipe.name} imageUrl={recipe.imageUrl} />
-              </RecipeCardWrapper>
+              <Link href={`/recipe/${recipe.id}`}>
+                <RecipeCardWrapper key={recipe.id}>
+                  <RecipeCard title={recipe.name} imageUrl={recipe.imageUrl} />
+                </RecipeCardWrapper>
+              </Link>
             ))}
           </RecipeCardGrid>
         </RecipeCardContainer>
