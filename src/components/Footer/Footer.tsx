@@ -6,7 +6,7 @@ const Footer = () => (
   >
     <p>
       Portfolio project. Stack: Next.js, Typescript, Tailwind,
-      Styled-componenets, twin.macro and Storybook.
+      Styled-components, twin.macro and Storybook.
     </p>
   </div>
 )
