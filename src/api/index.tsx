@@ -12,3 +12,10 @@ export const getRecipes = async () => {
   const data = res.data
   return data
 }
+
+export const getOneRecipeById = async (id: string) => {
+  const URL = `/recipe/${id}`
+  const res = await axios(URL)
+  const data = res.data
+  return data
+}

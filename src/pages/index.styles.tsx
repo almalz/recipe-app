@@ -9,5 +9,5 @@ export const RecipeCardGrid = styled.div`
 `
 
 export const RecipeCardWrapper = styled.div`
-  ${tw`m-2 overflow-hidden`}
+  ${tw`m-2 overflow-hidden cursor-pointer	`}
 `
