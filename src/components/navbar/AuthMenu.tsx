@@ -16,7 +16,6 @@ export type Props = {
 
 const AuthMenu: React.FC<Props> = ({ user }) => {
   const handleSignInClick = () => {
-    console.log(user)
     user ? toggleDropdown() : openModal()
   }
 
@@ -42,8 +41,6 @@ const AuthMenu: React.FC<Props> = ({ user }) => {
 
   const [showSignInModal, setShowSignInModal] = useState<boolean>(false)
   const [showSignOut, setShowSignOut] = useState<boolean>(!showSignInModal)
-
-  console.log('showSignInModal', showSignInModal)
 
   const ref: any = useRef<HTMLDivElement>()
 
