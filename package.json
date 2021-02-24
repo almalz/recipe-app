@@ -9,7 +9,7 @@
     "type-check": "tsc",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "start-storybook": "start-storybook -s ./public -p 9001"
+    "sb": "start-storybook -s ./public -p 9001"
   },
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
