@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import {
   StyledNavbar,
   StyledNavbarItem,
@@ -16,7 +17,7 @@ export type NavItem = {
 }
 
 export const navbarItems: NavItem[] = [
-  { label: 'Recipes', link: '' },
+  { label: 'Recipes', link: '/' },
   { label: 'Blog', link: '' }
 ]
 
@@ -27,9 +28,9 @@ const Navbar: React.FC<NavbarProps> = ({ navItems = navbarItems }) => {
     <StyledNavbar>
       <StyledItemContainer>
         {navItems.map((navItem) => (
-          <StyledNavbarItem key={navItem.label}>
-            {navItem.label}
-          </StyledNavbarItem>
+          <Link href={navItem.link} key={navItem.label}>
+            <StyledNavbarItem>{navItem.label}</StyledNavbarItem>
+          </Link>
         ))}
       </StyledItemContainer>
       <AuthMenu user={user} />
