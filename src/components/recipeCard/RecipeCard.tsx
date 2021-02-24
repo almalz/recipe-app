@@ -22,7 +22,7 @@ const RecipeCard: React.FC<RecipeCardProps> = ({ title, imageUrl }) => {
           alt={title}
           layout="fill"
           objectFit="cover"
-          css={tw`transform transition duration-200 hover:scale-110`}
+          css={tw` transform transition duration-200 hover:scale-110`}
         />
 
         <TimeLabel>
