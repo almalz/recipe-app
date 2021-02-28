@@ -3,7 +3,7 @@ import { Story } from '@storybook/react/types-6-0'
 import Navbar, { NavbarProps, navbarItems } from './Navbar'
 
 export default {
-  title: 'Example/Navbar',
+  title: 'Navbar',
   component: Navbar
 }
 

@@ -6,7 +6,7 @@ import SegmentedControl, {
 } from './SegmentedControl'
 
 export default {
-  title: 'Example/SegmentedControl',
+  title: 'SegmentedControl',
   component: SegmentedControl
 }
 

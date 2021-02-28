@@ -4,7 +4,7 @@ import RecipeCard, { RecipeCardProps } from './RecipeCard'
 import { mockRecipes as recipes } from '../../__mock__/data'
 
 export default {
-  title: 'Example/RecipeCard',
+  title: 'RecipeCard',
   component: RecipeCard
 }
 
