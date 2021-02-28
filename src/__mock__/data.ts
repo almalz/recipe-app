@@ -80,6 +80,42 @@ export const mockRecipes = [
           name: 'Ground beef',
           alternativeingredientId: null
         }
+      },
+      {
+        id: 6,
+        recipeId: 5,
+        ingredientId: 8,
+        base_amout: null,
+        unitId: null,
+        ingredient: {
+          id: 8,
+          name: 'Sauce',
+          alternativeingredientId: null
+        }
+      },
+      {
+        id: 7,
+        recipeId: 5,
+        ingredientId: 8,
+        base_amout: null,
+        unitId: null,
+        ingredient: {
+          id: 8,
+          name: 'Lettuce',
+          alternativeingredientId: null
+        }
+      },
+      {
+        id: 8,
+        recipeId: 5,
+        ingredientId: 8,
+        base_amout: null,
+        unitId: null,
+        ingredient: {
+          id: 8,
+          name: 'Tomato',
+          alternativeingredientId: null
+        }
       }
     ]
   }
