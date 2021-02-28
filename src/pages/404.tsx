@@ -16,7 +16,7 @@ const NotFound: React.FC = () => {
         <Wrapper>
           404 Not Found.
           <br />
-          We did not found any page or recipe for this URL
+          We did not found any page or recipe for this URL.
         </Wrapper>
       </Layout>
       <Footer />
