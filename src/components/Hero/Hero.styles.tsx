@@ -9,7 +9,7 @@ export const HeroImageWrapper = styled.div`
 `
 
 export const HeroWrapper = styled.div`
-  ${tw`w-full pt-8 h-5/6`}
+  ${tw`w-full pt-8 pb-4 h-5/6`}
 `
 
 export const TitleWrapper = styled.div`
