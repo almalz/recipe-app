@@ -26,7 +26,7 @@ export const createUser = async (email: string, password: string) => {
     return user as FirebaseResponse
   } catch (error) {
     console.error(error)
-    return error as FirebaseResponse
+    throw error
   }
 }
 
@@ -40,7 +40,7 @@ export const signIn = async (email: string, password: string) => {
     return user as FirebaseResponse
   } catch (error) {
     console.error(error)
-    return error as FirebaseResponse
+    throw error
   }
 }
 
@@ -50,7 +50,7 @@ export const signOut = async () => {
     console.log('Signing out')
   } catch (error) {
     console.error(error)
-    return error as FirebaseResponse
+    throw error
   }
 }
 firebase.auth().onAuthStateChanged(() => {})

@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form'
 
 import Button from '../Button/Button'
 import Input from '../Input/Input'
+import Error from '../Error/Error'
+
 import SegmentedControl, {
   SegmentItem
 } from '../SegmentedControl/SegmentedControl'
@@ -19,15 +21,10 @@ import firebase, { createUser, signIn } from '../../api/firebase'
 
 export type Props = {
   modalIsOpen: boolean
-  afterOpenModal?: () => void
   closeModal: () => void
 }
 
-const AuthModal: React.FC<Props> = ({
-  modalIsOpen,
-  afterOpenModal,
-  closeModal
-}) => {
+const AuthModal: React.FC<Props> = ({ modalIsOpen, closeModal }) => {
   type FormInputs = {
     email: string
     password: string
@@ -38,21 +35,38 @@ const AuthModal: React.FC<Props> = ({
   const segments: SegmentItem[] = [{ label: 'Sign In' }, { label: 'Sign Up' }]
 
   const [authMethod, setAuthMethod] = useState<SegmentItem>(segments[0])
+  const [error, setError] = useState<firebase.FirebaseError | null>(null)
+
+  const resetError = () => {
+    setError(null)
+  }
 
   const handleSelect = (segment: SegmentItem) => {
     setAuthMethod(segment)
+    resetError()
   }
 
-  const onSubmit = (data: FormInputs) => {
+  const onSubmit = async (data: FormInputs) => {
+    resetError()
     switch (authMethod.label) {
       case segments[0].label: //Sign In
-        signIn(data.email, data.password)
-        closeModal()
+        try {
+          await signIn(data.email, data.password)
+          closeModal()
+          console.log('uncaught')
+        } catch (error) {
+          console.log('catch', error)
+          setError(error)
+        }
         break
 
       case segments[1].label: //Sign Up
-        createUser(data.email, data.password)
-        closeModal()
+        try {
+          await createUser(data.email, data.password)
+          closeModal()
+        } catch (error) {
+          setError(error)
+        }
         break
 
       default:
@@ -63,8 +77,8 @@ const AuthModal: React.FC<Props> = ({
   return (
     <StyledModal
       isOpen={modalIsOpen}
-      onAfterOpen={afterOpenModal}
       onRequestClose={closeModal}
+      onAfterClose={resetError}
     >
       <ModalWrapper>
         <AuthTypeContainer>
@@ -104,6 +118,12 @@ const AuthModal: React.FC<Props> = ({
                 iconPath="/assets/lock.svg"
                 errorMessage={errors?.password?.message}
               ></Input>
+              {error && (
+                <Error
+                  errorTitle={`${error.code} - ${error.name}`}
+                  errorMessage={error.message}
+                />
+              )}
             </InputContainer>
             <ButtonContainer>
               <Button
