@@ -14,7 +14,7 @@ const IngredientTable: React.FC<IngredientTableProps> = ({ ingredients }) => {
   return (
     <Table>
       {ingredients.map((ingredient, index) => (
-        <TableRow index={index}>
+        <TableRow index={index} key={index}>
           <IngredientAmount></IngredientAmount>
           <IngredientName>{ingredient.ingredient?.name}</IngredientName>
         </TableRow>
