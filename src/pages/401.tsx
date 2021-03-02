@@ -5,7 +5,7 @@ import Footer from '../components/Footer/Footer'
 import Navbar from '../components/Navbar/Navbar'
 
 const Wrapper = styled.div`
-  ${tw`my-16 py-8 px-12 font-medium rounded-lg truncate ring ring-warning ring-offset-1 ring-opacity-50 bg-warning bg-opacity-80	`}
+  ${tw`my-16 py-8 px-12 font-medium rounded-lg overflow-hidden ring ring-warning ring-offset-1 ring-opacity-50 bg-warning bg-opacity-80	`}
 `
 
 const Unauthorized: React.FC = () => {

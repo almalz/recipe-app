@@ -5,7 +5,7 @@ export const HeroTitle = styled.span`
 `
 
 export const HeroImageWrapper = styled.div`
-  ${tw`rounded-xl relative w-full h-96 truncate`}
+  ${tw`rounded-xl relative w-full h-96 overflow-hidden`}
 `
 
 export const HeroWrapper = styled.div`

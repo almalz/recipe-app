@@ -6,7 +6,7 @@ const StyledRecipeCard = styled.div`
 `
 
 export const CardImageContainer = styled.div`
-  ${tw`rounded-xl relative truncate w-full h-80`}
+  ${tw`rounded-xl relative overflow-hidden w-full h-80`}
 `
 
 export const CardImage = styled(Image)`
