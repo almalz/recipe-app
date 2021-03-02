@@ -8,8 +8,10 @@ export type ErrorProps = {
 const Hero: React.FC<ErrorProps> = ({ errorTitle, errorMessage }) => {
   return (
     <ErrorContainer>
-      <ErrorTitle>{errorTitle}</ErrorTitle>
-      <ErrorMessage>{errorMessage}</ErrorMessage>
+      <div>
+        <ErrorTitle>{errorTitle}</ErrorTitle>
+        <ErrorMessage>{errorMessage}</ErrorMessage>{' '}
+      </div>
     </ErrorContainer>
   )
 }
