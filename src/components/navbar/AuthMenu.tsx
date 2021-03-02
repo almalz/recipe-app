@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import { useRouter } from 'next/router'
 import tw from 'twin.macro'
 import useOutsideClick from '../../hooks/useClickOutside'
 import AuthModal from '../Modals/AuthModal'
@@ -15,12 +16,15 @@ export type Props = {
 }
 
 const AuthMenu: React.FC<Props> = ({ user }) => {
+  const router = useRouter()
+
   const handleSignInClick = () => {
     user ? toggleDropdown() : openModal()
   }
 
-  const handleSignOutClick = () => {
-    signOut()
+  const handleSignOutClick = async () => {
+    await signOut()
+    router.push('/')
   }
 
   const toggleDropdown = () => {
