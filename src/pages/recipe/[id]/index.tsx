@@ -3,9 +3,16 @@ import Footer from '../../../components/Footer/Footer'
 import Layout from '../../../components/Layout/Layout'
 import Navbar from '../../../components/Navbar/Navbar'
 import Hero from '../../../components/Hero/Hero'
+import IngredientTable from '../../../components/IngredientsTable/IngredientTable'
 
-import { PageWrapper } from './index.styles'
-import { Recipe } from '../../../types'
+import {
+  PageWrapper,
+  TimeText,
+  ContentWrapper,
+  LeftPanel,
+  RightPanel
+} from './index.styles'
+import { Recipe, IngredientsOnRecipe } from '../../../types'
 import { getOneRecipeById } from '../../../api'
 
 type PageProps = {
@@ -26,6 +33,18 @@ const RecipePage: React.FC<PageProps> = ({ recipe }) => {
         <Navbar />
         <PageWrapper>
           <Hero title={recipe.name} img={recipe.imageUrl as string} />
+          <TimeText> Preperation time: {recipe.prepTime} min </TimeText>
+          <TimeText> Cooking time: {recipe.cookingTime} min </TimeText>
+          <ContentWrapper>
+            <LeftPanel>
+              <IngredientTable
+                ingredients={
+                  recipe.IngredientsOnRecipe as IngredientsOnRecipe[]
+                }
+              ></IngredientTable>
+            </LeftPanel>
+            <RightPanel></RightPanel>
+          </ContentWrapper>
         </PageWrapper>
       </Layout>
       <Footer />
