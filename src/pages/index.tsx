@@ -5,6 +5,7 @@ import Layout from '../components/Layout/Layout'
 import Footer from '../components/Footer/Footer'
 import Navbar from '../components/Navbar/Navbar'
 import RecipeCard from '../components/RecipeCard/RecipeCard'
+import { Heading1 } from '../components/Headings/Headings'
 import {
   RecipeCardContainer,
   RecipeCardGrid,
@@ -31,6 +32,7 @@ const IndexPage: React.FC<PageProps> = ({ recipes }) => {
     <>
       <Layout>
         <Navbar />
+        <Heading1>All recipes</Heading1>
         <RecipeCardContainer>
           <RecipeCardGrid>
             {recipes.map((recipe) => (
